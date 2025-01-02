@@ -1,0 +1,12 @@
+To solve this, avoid `@apply` with dynamically generated classes.  Instead, compose utility classes directly within your JavaScript.  For example:
+
+```javascript
+// JavaScript code that directly applies utility classes
+document.getElementById('myElement').className = 'bg-gray-100 p-4 text-xl';
+```
+This approach ensures that the styles are applied correctly because you're directly using the Tailwind utility classes, eliminating the need for `@apply`'s build-time processing and avoiding any discrepancies between the build and runtime.
+
+If `@apply` is essential for organization or maintainability, consider server-side rendering or other strategies where class manipulation occurs *before* the page renders to the client.
+
+Alternatively, explore using a CSS-in-JS solution that generates CSS dynamically. However, be cautious of performance implications. 
+If dynamic styling is absolutely necessary, consider refactoring to use pre-defined classes that cover various style combinations or a more robust state-management solution to control styles consistently.
